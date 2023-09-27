@@ -19,6 +19,10 @@ Route::get('/animals', function (Request $request) {
     return new AnimalCollection(Animal::all());
 });
 
+Route::put('/animal', function (Request $request) {
+    return Animal::create($request->input());
+});
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
