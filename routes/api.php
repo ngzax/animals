@@ -23,6 +23,12 @@ Route::put('/animal', function (Request $request) {
     return Animal::create($request->input());
 });
 
+Route::delete('/animal', function (Request $request) {
+    $a = Animal::firstOrFail($request->input());
+    $a->delete();
+});
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
