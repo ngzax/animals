@@ -28,6 +28,10 @@ Route::delete('/animal', function (Request $request) {
     $a->delete();
 });
 
+Route::patch('/animal/{id}', function (Request $request, int $id) {
+    $a = Animal::findOrFail($id);
+    $a->update($request->input());
+});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
