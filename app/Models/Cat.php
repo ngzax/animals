@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cat extends Animal {
   protected $table = 'animals';
+
+  public function isLitterTrained() : bool {
+    return true;
+  }
 }
 
 
