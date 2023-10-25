@@ -5,12 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cat extends Animal {
+class Dog extends Animal {
   protected $table = 'animals';
-
-  public function isLitterTrained() : bool {
-    return true;
-  }
 }
 
 

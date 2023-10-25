@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Animal extends Model {
   use HasFactory;
-  protected $fillable = ['name','color','sound',"type"];
+  protected $fillable = ['name','color','sound',"type","is_litter_trained"];
+
 
   public function isLitterTrained() : bool {
-    return true;
+    return false;
   }
 }
