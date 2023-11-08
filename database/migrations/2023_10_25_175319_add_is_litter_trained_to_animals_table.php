@@ -19,7 +19,7 @@ return new class extends Migration {
    */
   public function down(): void {
     Schema::table('animals', function (Blueprint $table) {
-      //
+      $table->dropColumn('is_litter_trained')->default(false);
     });
   }
 };
