@@ -1,0 +1,1 @@
+select * from animals join cats on cats.animal_id = animals.id;
