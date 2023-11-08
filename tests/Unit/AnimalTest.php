@@ -35,9 +35,13 @@ class AnimalTest extends TestCase {
     $a = Cat::find(2);
     $this->assertTrue($a->isLitterTrained());
 
-    // Cat (of another color..
-    $a = Animal::find(2);
+    // Cat (of another color...)
+    $a = AnimalFactory::make(2);
+    // $a = Animal::find(2);
     $this->assertTrue($a->isLitterTrained());
+
+    $a->is_litter_trained = False;
+    $this->assertFalse($a->isLitterTrained());
 
     // Dog
     $a = Dog::find(3);
