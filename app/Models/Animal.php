@@ -9,7 +9,6 @@ class Animal extends Model {
   use HasFactory;
   protected $fillable = ['name','color','sound',"type","is_litter_trained"];
 
-
   public function isLitterTrained() : bool {
     return false;
   }
