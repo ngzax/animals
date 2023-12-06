@@ -12,7 +12,7 @@ use Tests\TestCase;
 class AnimalTest extends TestCase {
   public function testCreation() {
     // Cat
-    $a = AnimalFactory::make(2);
+    $a = Cat::find(2);
     $this->assertInstanceOf(Cat::class, $a);
 
     // Dog
@@ -23,7 +23,7 @@ class AnimalTest extends TestCase {
   public function testColor(): void {
     // Cat
     $a = Cat::find(2);
-    $this->assertEquals('black', $a->color);
+    $this->assertEquals('black', $a->getColor());
 
     // Dog
     $a = Dog::find(3);
@@ -36,8 +36,7 @@ class AnimalTest extends TestCase {
     $this->assertTrue($a->isLitterTrained());
 
     // Cat (of another color...)
-    $a = AnimalFactory::make(2);
-    // $a = Animal::find(2);
+    $a = Cat::find(2);
     $this->assertTrue($a->isLitterTrained());
 
     $a->is_litter_trained = False;
