@@ -1,5 +1,6 @@
 <?php
 use App\Models\Animal;
+use App\Models\Dog;
 use App\Http\Resources\AnimalCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,13 +25,18 @@ Route::put('/animal', function (Request $request) {
 });
 
 Route::delete('/animal', function (Request $request) {
-    $a = Animal::firstOrFail($request->input());
+    $a = AnimalFactory::find($request->input());
     $a->delete();
 });
 
 Route::patch('/animal/{id}', function (Request $request, int $id) {
-    $a = Animal::findOrFail($id);
+    $a = AnimalFactory::find($id);
     $a->update($request->input());
+});
+
+Route::patch('/dog/{id}', function (Request $request, int $id) {
+    $d = Dog::findOrFail($id);
+    $d->update($request->input());
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

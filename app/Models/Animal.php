@@ -13,6 +13,10 @@ class Animal extends Model {
     return $this->color;
   }
 
+  public function isGuard() : bool {
+    return false;
+  }
+
   public function isLitterTrained() : bool {
     return false;
   }
