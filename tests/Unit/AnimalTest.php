@@ -46,4 +46,14 @@ class AnimalTest extends TestCase {
     $a = Dog::find(3);
     $this->assertFalse($a->isLitterTrained());
   }
+
+  public function testGuard(): void {
+    // Cat
+    $a = Cat::find(2);
+    $this->assertFalse($a->isGuard());
+
+    // Dog
+    $a = Dog::find(3);
+    $this->assertFalse($a->isGuard());
+  }
 }
