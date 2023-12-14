@@ -6,7 +6,7 @@ use App\Models\Cat;
 use App\Models\Dog;
 
 class AnimalFactory {
-  public static function make($id) {
+  public static function find($id) {
     $a = Animal::findOrFail($id);
     if ($a) {
       if ('Cat' == $a->type) {return Cat::find($id);}
