@@ -10,13 +10,20 @@ use App\Models\Dog;
 use Tests\TestCase;
 
 class AnimalTest extends TestCase {
+  public function setUp() : void {
+    parent::setUp();
+    $a = Dog::find(3);
+    $a->update(['color' => 'brown']);
+    $a->update(['is_guard' => false]);
+  }
+
   public function testCreation() {
     // Cat
     $a = Cat::find(2);
     $this->assertInstanceOf(Cat::class, $a);
 
     // Dog
-    $a = AnimalFactory::make(3);
+    $a = AnimalFactory::find(3);
     $this->assertInstanceOf(Dog::class, $a);
   }
 
@@ -55,5 +62,23 @@ class AnimalTest extends TestCase {
     // Dog
     $a = Dog::find(3);
     $this->assertFalse($a->isGuard());
+  }
+
+  public function testUpdate(): void {
+    // Dog
+    $a = Dog::find(3);
+    $this->assertFalse($a->isGuard());
+
+    // Is Guard?
+    $a->update(['is_guard' => true]);
+    $this->assertTrue($a->isGuard());
+
+    // Color
+    $this->assertEquals('brown', $a->color);
+    $a->update(['color' => 'parti']);
+    $this->assertEquals('parti', $a->color);
+
+    // reset it back to default.
+    $a->update(['color' => 'brown']);
   }
 }
