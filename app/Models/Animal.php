@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Animal extends Model {
   use HasFactory;
-  public $fillable = ['name','color','sound',"type","is_litter_trained"];
+  public $fillable = ['name',  'color', 'sound', 'type'];
 
   public function getColor() : string {
     return $this->color;

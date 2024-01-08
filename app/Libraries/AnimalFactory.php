@@ -6,6 +6,11 @@ use App\Models\Cat;
 use App\Models\Dog;
 
 class AnimalFactory {
+  public static function all() {
+    $animals = Animal::all();
+    return $animals->map(function ($a) {return self::find($a->id);});
+  }
+
   public static function find($id) {
     $a = Animal::findOrFail($id);
     if ($a) {
